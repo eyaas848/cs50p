@@ -27,14 +27,14 @@ d'inflation officiel.
 - `plot_price_history(history, product)` - genere un graphique PNG
 
 ## Installation
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ## Utilisation
-\`\`\`bash
+```bash
 python3 project.py huile_1L "https://site-exemple.com/produit/huile" --selector ".price" --plot
-\`\`\`
+```
 
 ## Automatisation
 Le fichier `.github/workflows/scrape.yml` relance le scraper chaque lundi
@@ -49,6 +49,6 @@ l'element -> passe-la en `--selector`.
 Verifie le `robots.txt` du site, respecte les CGU, ne fais pas de requetes trop frequentes.
 
 ## Tests
-\`\`\`bash
+```bash
 pytest test_project.py
-\`\`\`
+```
