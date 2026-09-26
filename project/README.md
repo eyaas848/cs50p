@@ -5,24 +5,23 @@
 ![Automation](https://img.shields.io/badge/automation-GitHub%20Actions-blueviolet)
 
 ## Description
-A price tracking pipeline that automatically scrapes the price of a
-product every week, records the history in a CSV, generates a
-price evolution chart, and compares the observed change to the
-official inflation rate.
+A price-tracking pipeline that automatically scrapes a product's price
+every week, stores the history in a CSV, generates an evolution chart,
+and compares the observed variation to the official inflation rate.
 
 ## Features
 - Automatic scraping (BeautifulSoup)
 - Persistent history in CSV
 - Price evolution chart (matplotlib)
 - Comparison with the official inflation rate
-- Automated execution every week via GitHub Actions
+- Automated weekly execution via GitHub Actions
 - Unit tests (pytest)
 
-## Main Functions
+## Main functions
 - `fetch_price(url, selector)` - scrapes the price from a product page
 - `load_history(filename, product)` - loads the price history
-- `save_price(filename, product, price)` - records a new entry
-- `compute_price_change(old_price, new_price)` - calculates the change in %
+- `save_price(filename, product, price)` - saves a new price reading
+- `compute_price_change(old_price, new_price)` - computes the % variation
 - `compare_to_official_inflation(price_change, official_rate)` - compares to official inflation
 - `plot_price_history(history, product)` - generates a PNG chart
 
@@ -33,17 +32,18 @@ pip install -r requirements.txt
 ## Usage
 python3 project.py huile_1L "https://site-exemple.com/produit/huile" --selector ".price" --plot
 
-## Automation
+## Automation 
 The .github/workflows/scrape.yml file reruns the scraper every Monday
-at 9 AM UTC and automatically commits the updated history - no
-manual intervention required once configured.
+at 9am UTC and automatically commits the updated history - no manual
+intervention needed once set up.
 
-## Finding the Right CSS Selector
-Right-click on the displayed price -> “Inspect” -> locate the class/id of
-the element -> pass it to --selector.
+## Finding the right CSS selector
+Right-click the displayed price -> "Inspect" -> find the element's
+class/id -> pass it as --selector.
 
-## Scraping Ethics
-Check the site’s robots.txt, respect the terms of service, and do not make requests too frequently.
+## Scraping ethics
+Check the site's robots.txt, respect the terms of service, don't send
+requests too frequently.
 
 ## Tests
 pytest test_project.py
