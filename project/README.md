@@ -7,8 +7,8 @@
 ## Description
 A price tracking pipeline that automatically scrapes the price of a
 product every week, records the history in a CSV, generates a
-price evolution chart, and compares the observed change to the official
-inflation rate.
+price evolution chart, and compares the observed change to the
+official inflation rate.
 
 ## Features
 - Automatic scraping (BeautifulSoup)
