@@ -1,53 +1,55 @@
-Inflation Impact Analyzer
+# Analyseur d'Impact Inflationniste
 
-Description
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![Tests](https://img.shields.io/badge/tests-pytest-green)
+![Automation](https://img.shields.io/badge/automation-GitHub%20Actions-blueviolet)
 
-A price tracking pipeline that automatically scrapes the price of a
-product every week, records the history in a CSV, generates a
-price evolution chart, and compares the observed change to the official
-inflation rate.
+## Description
+Un pipeline de suivi de prix qui scrape automatiquement le prix d'un
+produit chaque semaine, enregistre l'historique dans un CSV, genere un
+graphique d'evolution, et compare la variation observee au taux
+d'inflation officiel.
 
-Features
+## Fonctionnalites
+- Scraping automatique (BeautifulSoup)
+- Historique persistant en CSV
+- Graphique d'evolution des prix (matplotlib)
+- Comparaison avec le taux d'inflation officiel
+- Execution automatisee chaque semaine via GitHub Actions
+- Tests unitaires (pytest)
 
-* Automatic scraping (BeautifulSoup)
-* Persistent history in CSV
-* Price evolution chart (matplotlib)
-* Comparison with the official inflation rate
-* Automated execution every week via GitHub Actions
-* Unit tests (pytest)
+## Fonctions principales
+- `fetch_price(url, selector)` - scrape le prix d'une page produit
+- `load_history(filename, product)` - charge l'historique des prix
+- `save_price(filename, product, price)` - enregistre un nouveau releve
+- `compute_price_change(old_price, new_price)` - calcule la variation en %
+- `compare_to_official_inflation(price_change, official_rate)` - compare a l'inflation officielle
+- `plot_price_history(history, product)` - genere un graphique PNG
 
-Main Functions
-
-* fetch_price(url, selector) - scrapes the price from a product page
-* load_history(filename, product) - loads the price history
-* save_price(filename, product, price) - records a new entry
-* compute_price_change(old_price, new_price) - calculates the change in %
-* compare_to_official_inflation(price_change, official_rate) - compares to official inflation
-* plot_price_history(history, product) - generates a PNG chart
-
-Installation
-
+## Installation
+```bash
 pip install -r requirements.txt
+```
 
-Usage
-
+## Utilisation
+```bash
 python3 project.py huile_1L "https://site-exemple.com/produit/huile" --selector ".price" --plot
+```
 
-Automation
+## Automatisation
+Le fichier `.github/workflows/scrape.yml` relance le scraper chaque lundi
+a 9h UTC et commit automatiquement l'historique mis a jour - aucune
+intervention manuelle necessaire une fois configure.
 
-The .github/workflows/scrape.yml file reruns the scraper every Monday
-at 9 AM UTC and automatically commits the updated history - no
-manual intervention required once configured.
+## Trouver le bon selecteur CSS
+Clic droit sur le prix affiche -> "Inspecter" -> repere la classe/id de
+l'element -> passe-la en `--selector`.
 
-Finding the Right CSS Selector
+## Ethique du scraping
+Verifie le `robots.txt` du site, respecte les CGU, ne fais pas de requetes trop frequentes.
 
-Right-click on the displayed price -> “Inspect” -> locate the class/id of
-the element -> pass it to --selector.
-
-Scraping Ethics
-
-Check the site’s robots.txt, respect the terms of service, and do not make requests too frequently.
-
-Tests
-
+## Tests
+```bash
 pytest test_project.py
+```
+
