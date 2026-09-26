@@ -4,8 +4,8 @@ Description
 
 A price tracking pipeline that automatically scrapes the price of a
 product every week, records the history in a CSV, generates a
-price evolution chart, and compares the observed change to the
-official inflation rate.
+price evolution chart, and compares the observed change to the official
+inflation rate.
 
 Features
 
@@ -22,7 +22,7 @@ Main Functions
 * load_history(filename, product) - loads the price history
 * save_price(filename, product, price) - records a new entry
 * compute_price_change(old_price, new_price) - calculates the change in %
-* compare_to_official_inflation(price_change, official_rate) - compares with official inflation
+* compare_to_official_inflation(price_change, official_rate) - compares to official inflation
 * plot_price_history(history, product) - generates a PNG chart
 
 Installation
@@ -37,7 +37,7 @@ Automation
 
 The .github/workflows/scrape.yml file reruns the scraper every Monday
 at 9 AM UTC and automatically commits the updated history - no
-manual intervention is required once configured.
+manual intervention required once configured.
 
 Finding the Right CSS Selector
 
