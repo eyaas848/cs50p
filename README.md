@@ -44,5 +44,5 @@ official inflation rate, automated to run weekly via GitHub Actions.
 - [x] Final Project — Inflation Impact Analyzer
 
 ## Author
-Aya — computer engineering student, preparing to specialize in AI / Data Science.
+Aya — computer engineering student.
 
